@@ -10,27 +10,42 @@ public class EasyMode : MonoBehaviour
 
     // Needed elements
     private string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    private char[] original = new char[26], offset = new char[26], unusable = new char[26];
+    private char[] original = new char[26], offset = new char[26]; //, unusable = new char[26];
+    private List<char> ListOfOriginalChars = new List<char>();
     private bool isLegit; 
 
     // Start is called before the first frame update
     void Start() {
-        original = (alphabet.ToLower()).ToCharArray();
-        available.text = "";
-        
-        foreach (char ch in original) {
-            available.text += (ch + "  ");
-        }
+        // available.text = "";
+        GenerateOriginalCharList();
         GenerateOffset();
+        
         InputHandler.GenerateInputList();
     }
 
     // Update is called once per frame
     void Update() {
-        isLegit = InputHandler.Inputs();
-        Debug.Log(isLegit);
+        DisplayAvailableOptions();
+        
+        isLegit = InputHandler.Inputs(ListOfOriginalChars);
+        if(isLegit)
+            Debug.Log(isLegit);
+    }
+
+    public void GenerateOriginalCharList() {
+        original = (alphabet.ToLower()).ToCharArray();
+        foreach (char ch in original) {
+            ListOfOriginalChars.Add(ch);
+        }
     }
     
+    public void DisplayAvailableOptions() {
+        available.text = "";
+        foreach (char ch in ListOfOriginalChars) {
+            available.text += (ch + "  ");
+        }
+    }
+
     public void GenerateOffset() {
         int shift = (int) Random.Range(1, 26);
         Debug.Log("Shift Amount = " + shift);
