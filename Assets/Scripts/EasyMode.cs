@@ -11,6 +11,7 @@ public class EasyMode : MonoBehaviour
     // Needed elements
     private string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private char[] original = new char[26], offset = new char[26], unusable = new char[26];
+    private bool isLegit; 
 
     // Start is called before the first frame update
     void Start() {
@@ -26,7 +27,8 @@ public class EasyMode : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        InputHandler.Inputs();
+        isLegit = InputHandler.Inputs();
+        Debug.Log(isLegit);
     }
     
     public void GenerateOffset() {
@@ -42,8 +44,6 @@ public class EasyMode : MonoBehaviour
             }
         }
     }
-
-    
 }
     
 

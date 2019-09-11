@@ -34,95 +34,100 @@ public class InputHandler : MonoBehaviour
         keyCodes.Add(KeyCode.Z);
     }
 
-    public static void CheckInputs(KeyCode kc) {
+    public static bool CheckInputs(KeyCode kc) {
         if (keyCodes.Contains(kc)) {
-            Debug.Log("You have pressed KeyCode = " + kc);
+            Debug.Log("Press => " + kc);
             keyCodes.Remove(kc);
+            return true;
         }
         else {
-            Debug.Log("Cannot be found - " + kc);
+            Debug.Log("ERROR -> " + kc);
+            return false;
         }
-        
+        return false;
     }
     
-    public static void Inputs() {
+    public static bool Inputs() {
         if (Input.GetKeyDown(KeyCode.A)) {
-            CheckInputs(KeyCode.A);
+           return CheckInputs(KeyCode.A);
         }
         else if (Input.GetKeyDown(KeyCode.B)) {
-            CheckInputs(KeyCode.B);
+            return CheckInputs(KeyCode.B);
         }
         else if (Input.GetKeyDown(KeyCode.C)) {
-            CheckInputs(KeyCode.C);
+            return CheckInputs(KeyCode.C);
         }
         else if (Input.GetKeyDown(KeyCode.D)) {
-            CheckInputs(KeyCode.D);
+            return CheckInputs(KeyCode.D);
         }
         else if (Input.GetKeyDown(KeyCode.E)) {
-            CheckInputs(KeyCode.E);
+            return CheckInputs(KeyCode.E);
         }  
         else if (Input.GetKeyDown(KeyCode.F)){
-            CheckInputs(KeyCode.F);
+            return CheckInputs(KeyCode.F);
         }
         else if (Input.GetKeyDown(KeyCode.G)) {
-            CheckInputs(KeyCode.G);
+            return CheckInputs(KeyCode.G);
         }
         else if (Input.GetKeyDown(KeyCode.H)) {
-            CheckInputs(KeyCode.H);
+            return CheckInputs(KeyCode.H);
         }
         else if (Input.GetKeyDown(KeyCode.I)) {
-            CheckInputs(KeyCode.I);
+            return CheckInputs(KeyCode.I);
         }
         else if (Input.GetKeyDown(KeyCode.J)) {
-            CheckInputs(KeyCode.J);
+            return CheckInputs(KeyCode.J);
         }
         else if (Input.GetKeyDown(KeyCode.K)) {
-            CheckInputs(KeyCode.K);
+            return CheckInputs(KeyCode.K);
         }
         else if (Input.GetKeyDown(KeyCode.L)) {
-            CheckInputs(KeyCode.L);
+            return CheckInputs(KeyCode.L);
         }
         else if (Input.GetKeyDown(KeyCode.M)) {
-            CheckInputs(KeyCode.M);
+            return CheckInputs(KeyCode.M);
         }
         else if (Input.GetKeyDown(KeyCode.N)) {
-            CheckInputs(KeyCode.N);
+            return CheckInputs(KeyCode.N);
         }
         else if (Input.GetKeyDown(KeyCode.O)) {
-            CheckInputs(KeyCode.O);
+            return CheckInputs(KeyCode.O);
         }
         else if (Input.GetKeyDown(KeyCode.P)) {
-            CheckInputs(KeyCode.P);
+            return CheckInputs(KeyCode.P);
         }
         else if (Input.GetKeyDown(KeyCode.Q)) {
-            CheckInputs(KeyCode.Q);
+            return CheckInputs(KeyCode.Q);
         }
         else if (Input.GetKeyDown(KeyCode.R)) {
-            CheckInputs(KeyCode.R);
+            return CheckInputs(KeyCode.R);
         }
         else if (Input.GetKeyDown(KeyCode.S)) {
-            CheckInputs(KeyCode.S);
+            return CheckInputs(KeyCode.S);
         }
         else if (Input.GetKeyDown(KeyCode.T)) {
-            CheckInputs(KeyCode.T);
+            return CheckInputs(KeyCode.T);
         }
         else if (Input.GetKeyDown(KeyCode.U)) {
-            CheckInputs(KeyCode.U);
+            return CheckInputs(KeyCode.U);
         }
         else if (Input.GetKeyDown(KeyCode.V)) {
-            CheckInputs(KeyCode.V);
+            return CheckInputs(KeyCode.V);
         }
         else if (Input.GetKeyDown(KeyCode.W)) {
-            CheckInputs(KeyCode.W);
+            return CheckInputs(KeyCode.W);
         }
         else if (Input.GetKeyDown(KeyCode.X)) {
-            CheckInputs(KeyCode.X);
+            return CheckInputs(KeyCode.X);
         }
         else if (Input.GetKeyDown(KeyCode.Y)) {
-            CheckInputs(KeyCode.Y);
+            return CheckInputs(KeyCode.Y);
         }
         else if (Input.GetKeyDown(KeyCode.Z)) {
-            CheckInputs(KeyCode.Z);
+            return CheckInputs(KeyCode.Z);
+        }
+        else {
+            return false;
         }
     }
 }
