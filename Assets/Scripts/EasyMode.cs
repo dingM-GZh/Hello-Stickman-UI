@@ -6,7 +6,7 @@ using UnityEngine;
 public class EasyMode : MonoBehaviour
 {
     // Configuration parameters
-    [SerializeField] private TextMeshProUGUI available, selections;
+    [SerializeField] private TextMeshProUGUI available, unavailable;
 
     // Needed elements
     private string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -16,7 +16,6 @@ public class EasyMode : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        // available.text = "";
         GenerateOriginalCharList();
         GenerateOffset();
         
@@ -25,8 +24,6 @@ public class EasyMode : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        DisplayAvailableOptions();
-        
         isLegit = InputHandler.Inputs(ListOfOriginalChars);
         if(isLegit)
             Debug.Log(isLegit);
@@ -38,11 +35,25 @@ public class EasyMode : MonoBehaviour
             ListOfOriginalChars.Add(ch);
         }
     }
+
+    public void DisplayOptions() {
+        DisplayAvailableOptions();
+        DisplayUnavailableOptions();
+    }
     
     public void DisplayAvailableOptions() {
         available.text = "";
         foreach (char ch in ListOfOriginalChars) {
             available.text += (ch + "  ");
+        }
+    }
+
+    public void DisplayUnavailableOptions()
+    {
+        unavailable.text = "";
+        foreach (var VARIABLE in COLLECTION)
+        {
+            
         }
     }
 

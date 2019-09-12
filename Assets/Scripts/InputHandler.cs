@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    private static List<KeyCode> keyCodes = new List<KeyCode>();
+    private static List<KeyCode> keyCodes = new List<KeyCode>(), used = new List<KeyCode>();
     public static void GenerateInputList() {
         keyCodes.Add(KeyCode.A);
         keyCodes.Add(KeyCode.B);
