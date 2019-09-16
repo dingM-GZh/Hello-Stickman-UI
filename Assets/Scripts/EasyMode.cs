@@ -9,60 +9,56 @@ public class EasyMode : MonoBehaviour
     [SerializeField] private TextMeshProUGUI available, unavailable;
 
     // Needed elements
-    private string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private char[] original = new char[26], offset = new char[26]; //, unusable = new char[26];
-    private List<char> ListOfOriginalChars = new List<char>();
+    private List<char> availableChars = new List<char>(), unavailableChars = new List<char>();
     private bool isLegit; 
+    
 
     // Start is called before the first frame update
     void Start() {
-        GenerateOriginalCharList();
         GenerateOffset();
-        
+        InputHandler.GetOffset(offset);
         InputHandler.GenerateInputList();
+        availableChars = InputHandler.GenerateCharList();
+        //Debug.Log("Cipher = " + new string(offset));
+
     }
 
     // Update is called once per frame
     void Update() {
-        isLegit = InputHandler.Inputs(ListOfOriginalChars);
-        if(isLegit)
-            Debug.Log(isLegit);
-    }
-
-    public void GenerateOriginalCharList() {
-        original = (alphabet.ToLower()).ToCharArray();
-        foreach (char ch in original) {
-            ListOfOriginalChars.Add(ch);
-        }
+        InputHandler.Inputs();
+        unavailableChars = InputHandler.GetUnavailableCharList();
+        
+        DisplayOptions();
     }
 
     public void DisplayOptions() {
-        DisplayAvailableOptions();
+        DisplayAvailableOptions(); 
         DisplayUnavailableOptions();
     }
     
     public void DisplayAvailableOptions() {
         available.text = "";
-        foreach (char ch in ListOfOriginalChars) {
+        foreach (char ch in availableChars) {
             available.text += (ch + "  ");
         }
     }
 
-    public void DisplayUnavailableOptions()
-    {
+    public void DisplayUnavailableOptions() {
         unavailable.text = "";
-        foreach (var VARIABLE in COLLECTION)
-        {
-            
+        foreach (var ch in unavailableChars) {
+            unavailable.text += (ch + "  ");
         }
     }
 
     public void GenerateOffset() {
+        original = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToLower().ToCharArray();
         int shift = (int) Random.Range(1, 26);
         Debug.Log("Shift Amount = " + shift);
 
-        for (int i = 0; i < alphabet.Length; i++) {
+        for (int i = 0; i < 26; i++) {
             offset[i] = original[shift];
+            //Debug.Log(offset[i]);
             shift++;
 
             if (shift >= 26) {

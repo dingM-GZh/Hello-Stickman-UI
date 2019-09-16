@@ -1,10 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    private static List<KeyCode> keyCodes = new List<KeyCode>(), used = new List<KeyCode>();
+    private static List<KeyCode> keyCodes = new List<KeyCode>();
+    private static List<char> availableChars = new List<char>(), 
+                              unavailableChars = new List<char>(), offset = new List<char>();
+    private static char[] alphabet;
+    
+
+    public static void Initialisation() {
+        GenerateInputList();
+        GenerateCharList();
+    }
+
     public static void GenerateInputList() {
         keyCodes.Add(KeyCode.A);
         keyCodes.Add(KeyCode.B);
@@ -34,15 +46,44 @@ public class InputHandler : MonoBehaviour
         keyCodes.Add(KeyCode.Z);
     }
 
-    public static bool CheckInputs(KeyCode kc, List<char> list, char ch) {
+    public static void GetOffset(char[] offset) {
+        int i = 1;
+        foreach (var ch in offset) {
+            InputHandler.offset.Add(ch);
+            Debug.Log(i + "  " + ch);
+            i++;
+        }
+    }
+    
+    public static List<char> GenerateCharList() {
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToLower().ToCharArray();
+        foreach (var ch in alphabet) {
+            availableChars.Add(ch);
+        }
+        return availableChars;
+    }
+
+    public static List<char> GetUnavailableCharList() {
+        return unavailableChars;
+    }
+
+    public static bool CheckInputs(KeyCode kc, char ch) {
         if (keyCodes.Contains(kc)) {
             Debug.Log("Press => " + kc);
             keyCodes.Remove(kc);
             
-            int index = list.IndexOf(ch);
-            list.Remove(ch);
-            list.Insert(index, '*');
+            int index = availableChars.IndexOf(ch);
+            Debug.Log("Index " + index);
             
+            availableChars.Insert(index, '*');
+            availableChars.Remove(ch);
+            
+            char temp = offset.ElementAt(index);
+            HelloWorldHandler.GetDeletedOffset(temp);
+            
+           //offset.RemoveAt(index);
+
+            unavailableChars.Add(ch);
             return true;
         }
         else {
@@ -51,87 +92,87 @@ public class InputHandler : MonoBehaviour
         }
     }
     
-    public static bool Inputs(List<char> list) {
+    public static void Inputs() {
         if (Input.GetKeyDown(KeyCode.A)) {
-           return CheckInputs(KeyCode.A, list, 'a');
+           CheckInputs(KeyCode.A,'a');
         }
         else if (Input.GetKeyDown(KeyCode.B)) {
-            return CheckInputs(KeyCode.B, list, 'b');
+            CheckInputs(KeyCode.B, 'b');
         }
         else if (Input.GetKeyDown(KeyCode.C)) {
-            return CheckInputs(KeyCode.C, list, 'c');
+            CheckInputs(KeyCode.C, 'c');
         }
         else if (Input.GetKeyDown(KeyCode.D)) {
-            return CheckInputs(KeyCode.D, list, 'd');
+            CheckInputs(KeyCode.D, 'd');
         }
         else if (Input.GetKeyDown(KeyCode.E)) {
-            return CheckInputs(KeyCode.E, list, 'e');
+            CheckInputs(KeyCode.E, 'e');
         }  
         else if (Input.GetKeyDown(KeyCode.F)){
-            return CheckInputs(KeyCode.F, list, 'f');
+            CheckInputs(KeyCode.F, 'f');
         }
         else if (Input.GetKeyDown(KeyCode.G)) {
-            return CheckInputs(KeyCode.G, list, 'g');
+            CheckInputs(KeyCode.G, 'g');
         }
         else if (Input.GetKeyDown(KeyCode.H)) {
-            return CheckInputs(KeyCode.H, list, 'h');
+            CheckInputs(KeyCode.H, 'h');
         }
         else if (Input.GetKeyDown(KeyCode.I)) {
-            return CheckInputs(KeyCode.I, list, 'i');
+            CheckInputs(KeyCode.I, 'i');
         }
         else if (Input.GetKeyDown(KeyCode.J)) {
-            return CheckInputs(KeyCode.J, list, 'j');
+            CheckInputs(KeyCode.J, 'j');
         }
         else if (Input.GetKeyDown(KeyCode.K)) {
-            return CheckInputs(KeyCode.K, list, 'k');
+            CheckInputs(KeyCode.K, 'k');
         }
         else if (Input.GetKeyDown(KeyCode.L)) {
-            return CheckInputs(KeyCode.L, list, 'l');
+            CheckInputs(KeyCode.L, 'l');
         }
         else if (Input.GetKeyDown(KeyCode.M)) {
-            return CheckInputs(KeyCode.M, list, 'm');
+            CheckInputs(KeyCode.M, 'm');
         }
         else if (Input.GetKeyDown(KeyCode.N)) {
-            return CheckInputs(KeyCode.N, list, 'n');
+            CheckInputs(KeyCode.N, 'n');
         }
         else if (Input.GetKeyDown(KeyCode.O)) {
-            return CheckInputs(KeyCode.O, list, 'o');
+            CheckInputs(KeyCode.O, 'o');
         }
         else if (Input.GetKeyDown(KeyCode.P)) {
-            return CheckInputs(KeyCode.P, list, 'p');
+            CheckInputs(KeyCode.P, 'p');
         }
         else if (Input.GetKeyDown(KeyCode.Q)) {
-            return CheckInputs(KeyCode.Q, list, 'q');
+            CheckInputs(KeyCode.Q, 'q');
         }
-        else if (Input.GetKeyDown(KeyCode.R)) {
-            return CheckInputs(KeyCode.R, list, 'r');
+        else if (Input.GetKeyDown(KeyCode.R)) { 
+            CheckInputs(KeyCode.R, 'r');
         }
         else if (Input.GetKeyDown(KeyCode.S)) {
-            return CheckInputs(KeyCode.S, list, 's');
+            CheckInputs(KeyCode.S, 's');
         }
         else if (Input.GetKeyDown(KeyCode.T)) {
-            return CheckInputs(KeyCode.T, list, 't');
+            CheckInputs(KeyCode.T, 't');
         }
         else if (Input.GetKeyDown(KeyCode.U)) {
-            return CheckInputs(KeyCode.U, list, 'u');
+            CheckInputs(KeyCode.U, 'u');
         }
         else if (Input.GetKeyDown(KeyCode.V)) {
-            return CheckInputs(KeyCode.V, list, 'v');
+            CheckInputs(KeyCode.V, 'v');
         }
         else if (Input.GetKeyDown(KeyCode.W)) {
-            return CheckInputs(KeyCode.W, list, 'w');
+            CheckInputs(KeyCode.W, 'w');
         }
         else if (Input.GetKeyDown(KeyCode.X)) {
-            return CheckInputs(KeyCode.X, list, 'x');
+            CheckInputs(KeyCode.X, 'x');
         }
         else if (Input.GetKeyDown(KeyCode.Y)) {
-            return CheckInputs(KeyCode.Y, list, 'y');
+            CheckInputs(KeyCode.Y, 'y');
         }
         else if (Input.GetKeyDown(KeyCode.Z)) {
-            return CheckInputs(KeyCode.Z, list, 'z');
+            CheckInputs(KeyCode.Z, 'z');
         }
         else {
-            return false;
+            
         }
     }
 }
