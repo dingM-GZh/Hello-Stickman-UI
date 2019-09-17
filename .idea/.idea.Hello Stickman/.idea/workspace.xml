@@ -19,6 +19,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TextFadeInTMP.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EasyMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WinScreenHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Udemy/Block Breaker/Block Breaker/Assets/Scripts/Paddle.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -26,9 +27,10 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/TextFadeIn.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TextFadeInTMP.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EasyMode.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/WinScreenHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InputHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HelloWorldHandler.cs" />
       </list>
     </option>
@@ -94,6 +96,7 @@
       <workItem from="1568214014051" duration="5386000" />
       <workItem from="1568230289725" duration="2602000" />
       <workItem from="1568416088168" duration="12304000" />
+      <workItem from="1568687494182" duration="6616000" />
     </task>
     <servers />
   </component>

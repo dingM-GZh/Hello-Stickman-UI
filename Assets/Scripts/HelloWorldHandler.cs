@@ -5,7 +5,6 @@ using TMPro;
 
 public class HelloWorldHandler : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI helloWorld;
-    private List<(int, char)> key = new List<(int, char)>();
     private static char[] hw = new char[11];
     private static bool[] completion = new bool[7];
     private static bool isComplete = false;
@@ -47,16 +46,6 @@ public class HelloWorldHandler : MonoBehaviour {
             completion[i] = false;
         }
     }
-    
-    public void GetKey() {
-        key.Add((3, 'd'));
-        key.Add((4, 'e'));
-        key.Add((7, 'h'));
-        key.Add((11, 'l'));
-        key.Add((14, 'o'));
-        key.Add((17, 'r'));
-        key.Add((22, 'w'));
-    }
 
     public static void CheckHelloWorld() {
         for (int i = 0; i < completion.Length; i++) {
@@ -65,12 +54,13 @@ public class HelloWorldHandler : MonoBehaviour {
             }
             else {
                 isComplete = false;
+                break;
             }
         }
 
         if (isComplete)
         {
-            SceneLoader.NextScene();
+            SceneLoader.WinScene();
         }
     }
 

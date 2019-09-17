@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public static void NextScene() {
+    public void NextScene() {
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex + 1);
     }
@@ -18,11 +18,20 @@ public class SceneLoader : MonoBehaviour
         Application.Quit();
     }
 
+    public static void QuitGameEarly() {
+        Application.Quit();
+    }
+
     public void LoseScene() {
         
     }
 
-    public void WinScene() {
-        
+    public static void WinScene() {
+        SceneManager.LoadScene("Win Screen");
+    }
+
+    public void ReloadGame() {
+        EasyMode.Reset();
+        SceneManager.LoadScene("Core Game");
     }
 }

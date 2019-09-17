@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InputHandler : MonoBehaviour
 {
@@ -171,8 +172,8 @@ public class InputHandler : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Z)) {
             CheckInputs(KeyCode.Z, 'z');
         }
-        else {
-            
+        else if (Input.GetKeyDown(KeyCode.Escape)){
+            SceneLoader.QuitGameEarly();
         }
     }
 }

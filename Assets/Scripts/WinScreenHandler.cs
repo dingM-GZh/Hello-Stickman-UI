@@ -7,22 +7,21 @@ public class WinScreenHandler : MonoBehaviour
 {
     private static List<char> inputs;
 
-    [SerializeField] private static TextMeshProUGUI usedInputs;
+    [SerializeField] private TextMeshProUGUI usedInputs, numberOfInputs;
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetInputList();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        DisplayInputs();
     }
 
-    public static void GetInputList(List<char> list)
-    {
-        
+    public static void GetInputList() {
+        inputs = InputHandler.GetUnavailableCharList();
     }
 
     public void DisplayInputs() {
@@ -30,5 +29,7 @@ public class WinScreenHandler : MonoBehaviour
         foreach (var ch in inputs) {
             usedInputs.text += (ch + "  ");
         }
+
+        numberOfInputs.text = "Number of Inputs \n" + inputs.Count;
     }
 }
