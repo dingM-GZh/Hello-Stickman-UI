@@ -32,6 +32,6 @@ public class SceneLoader : MonoBehaviour
 
     public void ReloadGame() {
         EasyMode.Reset();
-        SceneManager.LoadScene("Core Game");
+        SceneManager.LoadScene("Easy Mode");
     }
 }

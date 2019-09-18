@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: a9bcf07165e40444abb6e68cb725046d
   - enabled: 1
-    path: Assets/Scenes/Core Game.unity
+    path: Assets/Scenes/Easy Mode.unity
     guid: 694c4032fefd5f243a87f875b91e27b9
   - enabled: 1
     path: Assets/Scenes/Win Screen.unity

@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="EasyMode.cs" t="Include" />
+          <e p="HardMode.cs" t="Include" />
           <e p="HelloWorldHandler.cs" t="Include" />
           <e p="InputHandler.cs" t="Include" />
           <e p="SceneLoader.cs" t="Include" />
