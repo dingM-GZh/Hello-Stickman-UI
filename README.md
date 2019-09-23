@@ -1,4 +1,4 @@
-# Hello-Stickman-UI.v1
+# Hello Stickman UI
 A text-based game based on the classic Stickman. It implements the Caesar Cipher shift to display Hello World.
 
 ## Download
